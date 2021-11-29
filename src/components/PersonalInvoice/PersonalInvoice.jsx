@@ -34,13 +34,13 @@ export default function PersonalInvoice({ setOpen, id }) {
                 <tbody className={styles["general-info__body"]}>
                   {pckg.map((row) => (
                     <tr key={row.id}>
-                      <td className={styles["general-info__body-info"]}>
+                      <td className={styles["general-info__body-info_id"]}>
                         {row.id.split("k").join("k ")}
                       </td>
-                      <td className={styles["general-info__body-info"]}>
+                      <td className={styles["general-info__body-info_weight"]}>
                         {row.weight.split("kg").join(" kg")}
                       </td>
-                      <td className={styles["general-info__body-info"]}>{row.price}</td>
+                      <td className={styles["general-info__body-info_price"]}>{row.price}</td>
                     </tr>
                   ))}
                 </tbody>

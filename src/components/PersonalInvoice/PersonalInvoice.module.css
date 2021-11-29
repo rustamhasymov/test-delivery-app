@@ -20,7 +20,7 @@
   overflow-y: auto;
   outline: 2px solid white;
   border: 2px solid black;
-  box-shadow: 0 0 20px 15px #000000;
+  box-shadow: 0 0 40px 20px #000000;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -67,20 +67,28 @@
 .general-info__table * {
   padding: 8px;
   text-align: center;
+  font-size: 0.9em;
 }
 
 .general-info__head {
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 1.1em;
 }
 
-.general-info__body-info {
-  font-size: 0.9em;
+.general-info__body-info_id {
+  width: 20%;
+}
+.general-info__body-info_weight,
+.general-info__body-info_price {
+  width: 40%;
 }
 
 .general-info__total-weight,
 .general-info__total-price {
-  font-size: 1.3em;
-  padding-top: 60px;
+  font-size: inherit;
+  padding-top: 30px;
+  width: calc(100% / 2);
+  line-height: 1.3em;
 }
 
 .general-info__total-price {
@@ -97,4 +105,101 @@
 
 .footer > * {
   padding: 0 32px;
+}
+
+@media (max-width: 700px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrapper {
+    top: 0;
+    left: 0;
+    transform: none;
+    position: static;
+    margin: 0 16px;
+    padding: 16px 8px;
+  }
+
+  .general-info__body-info_id {
+    width: 15%;
+  }
+
+  .general-info__body-info_weight {
+    width: 40%;
+  }
+
+  .general-info__body-info_price {
+    width: 45%;
+  }
+
+  .footer > * {
+    line-height: 1.2em;
+    padding: 0 16px;
+    text-align: center;
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrapper {
+    top: 0;
+    left: 0;
+    transform: none;
+    position: static;
+    margin: 0 16px;
+    padding: 16px 8px;
+  }
+
+  .general-info__head,
+  .general-info__total-weight {
+    font-size: 1em;
+  }
+
+  .general-info__total-price {
+    font-size: 1.2em;
+  }
+
+  .header {
+    gap: 10px;
+    padding: 0 8px;
+  }
+
+  .header > * {
+    width: calc(100% / 2 - 20px);
+    padding: 4px 8px;
+  }
+
+  .client-invoice,
+  .name-page {
+    padding-left: 6px;
+  }
+
+  .general-info__body-info_id {
+    width: 15%;
+  }
+
+  .general-info__body-info_weight {
+    width: 40%;
+  }
+
+  .general-info__body-info_price {
+    width: 45%;
+  }
+
+  .client-name {
+    font-size: 1.2em;
+  }
+
+  .footer > * {
+    line-height: 1.2em;
+    padding: 0 16px;
+    text-align: center;
+  }
 }
