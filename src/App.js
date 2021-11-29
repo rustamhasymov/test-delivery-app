@@ -17,65 +17,71 @@ import ListItemText from "@mui/material/ListItemText";
 
 import "./App.css";
 import "./resets.css";
+import { useData } from "./hooks/useData";
+import Load from "./components/Load/Load";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
+  const [{ loader }] = useData();
 
   return (
-    <div className="App">
-      <Router>
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
-            <Toolbar>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-                onClick={() => setShowMenu(true)}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Mail Delivery Service
-              </Typography>
-            </Toolbar>
-          </AppBar>
-        </Box>
-        <Drawer anchor={"left"} open={showMenu} onClose={() => setShowMenu(false)}>
-          <List style={{ width: "300px" }}>
-            <ListItem button>
-              <Link to="/packages">
-                <ListItemText primary="Packages" />
-              </Link>
-            </ListItem>
-            <ListItem button>
-              <Link to="/customers">
-                <ListItemText primary="Customers" />
-              </Link>
-            </ListItem>
-            <ListItem button>
-              <Link to="/invoices">
-                <ListItemText primary="Invoices" />
-              </Link>
-            </ListItem>
-          </List>
-        </Drawer>
+    <>
+      {loader && <Load />}
+      <div className="App">
+        <Router>
+          <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static">
+              <Toolbar>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ mr: 2 }}
+                  onClick={() => setShowMenu(true)}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                  Mail Delivery Service
+                </Typography>
+              </Toolbar>
+            </AppBar>
+          </Box>
+          <Drawer anchor={"left"} open={showMenu} onClose={() => setShowMenu(false)}>
+            <List style={{ width: "300px" }}>
+              <ListItem button>
+                <Link to="/packages">
+                  <ListItemText primary="Packages" />
+                </Link>
+              </ListItem>
+              <ListItem button>
+                <Link to="/customers">
+                  <ListItemText primary="Customers" />
+                </Link>
+              </ListItem>
+              <ListItem button>
+                <Link to="/invoices">
+                  <ListItemText primary="Invoices" />
+                </Link>
+              </ListItem>
+            </List>
+          </Drawer>
 
-        <Switch>
-          <Route path="/packages">
-            <PackageList />
-          </Route>
-          <Route path="/customers">
-            <CustomerList />
-          </Route>
-          <Route path="/invoices">
-            <Invoices />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+          <Switch>
+            <Route path="/packages">
+              <PackageList />
+            </Route>
+            <Route path="/customers">
+              <CustomerList />
+            </Route>
+            <Route path="/invoices">
+              <Invoices />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </>
   );
 }
 

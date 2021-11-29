@@ -5,6 +5,7 @@ const initialState = {
     packages: [],
     invoices: [],
   },
+  loader: true,
 };
 const Context = createContext();
 export const useData = () => useContext(Context);
@@ -46,12 +47,16 @@ const DataProvider = ({ children }) => {
           .filter(Boolean);
         dispatch({ type: "INITIAL", payload: data });
         dispatch({ type: "ADD_INVOICES", payload: invoicesData });
+        dispatch({ type: "SET_LOAD", payload: false });
       });
   }, []);
   function reducer(state, { type, payload }) {
     switch (type) {
       case "INITIAL": {
         return { ...state, data: payload };
+      }
+      case "SET_LOAD": {
+        return { ...state, loader: payload };
       }
       case "ADD_PACKAGE": {
         return { ...state, data: { ...state.data, packages: [...state.data.packages, payload] } };
