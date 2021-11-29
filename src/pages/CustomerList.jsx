@@ -9,7 +9,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useData } from "../hooks/useData";
 import { useState } from "react";
-import CreatedInvoice from "../components/CreatedInvoice";
+import PersonalInvoice from "../components/PersonalInvoice/PersonalInvoice";
+// import CreatedInvoice from "../components/CreatedInvoice";
 
 export default function CustomerList() {
   const [{ data }, dispatch] = useData();
@@ -23,6 +24,7 @@ export default function CustomerList() {
   return (
     <>
       {/* <CreatedInvoice open={open} setOpen={setOpen} id={customerId} /> */}
+      {open && <PersonalInvoice open={open} setOpen={setOpen} id={customerId} />}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
