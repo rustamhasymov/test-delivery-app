@@ -7,9 +7,7 @@ export default function PersonalInvoice({ setOpen, id }) {
   const customer = data && data.customers.find((customer) => customer.id === id);
   const pckg = data && data.packages.filter((pckg) => pckg.customerid === id);
 
-  console.log(pckg);
   if (Object.keys(data)?.length === 0 && !id) return <></>;
-  console.log(data);
   return (
     <section className={styles.container} onClick={() => setOpen(false)}>
       <div className={styles.wrapper} onClick={(e) => e.stopPropagation()}>
