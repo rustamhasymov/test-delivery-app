@@ -1,27 +1,25 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import PackageList from './pages/PackageList';
-import CustomerList from './pages/CustomerList';
-import Invoices from './pages/Invoices';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import PackageList from "./pages/PackageList";
+import CustomerList from "./pages/CustomerList";
+import Invoices from "./pages/Invoices";
 
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
 
-
-import './App.css';
+import "./App.css";
+import "./resets.css";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
-
-  
 
   return (
     <div className="App">
@@ -45,8 +43,8 @@ function App() {
             </Toolbar>
           </AppBar>
         </Box>
-        <Drawer anchor={'left'} open={showMenu} onClose={() => setShowMenu(false)}>
-          <List style={{ width: '300px' }}>
+        <Drawer anchor={"left"} open={showMenu} onClose={() => setShowMenu(false)}>
+          <List style={{ width: "300px" }}>
             <ListItem button>
               <Link to="/packages">
                 <ListItemText primary="Packages" />
@@ -76,12 +74,6 @@ function App() {
             <Invoices />
           </Route>
         </Switch>
-
-        
-
-        
-
-        
       </Router>
     </div>
   );
