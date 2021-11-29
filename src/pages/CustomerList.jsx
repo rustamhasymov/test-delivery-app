@@ -24,7 +24,7 @@ export default function CustomerList() {
   return (
     <>
       {/* <CreatedInvoice open={open} setOpen={setOpen} id={customerId} /> */}
-      {open && <PersonalInvoice open={open} setOpen={setOpen} id={customerId} />}
+      {open && <PersonalInvoice setOpen={setOpen} id={customerId} />}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>

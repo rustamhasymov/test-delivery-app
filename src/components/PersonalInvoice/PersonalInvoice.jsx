@@ -1,6 +1,10 @@
+import { useData } from "../../hooks/useData";
 import styles from "./PersonalInvoice.module.css";
 
-export default function PersonalInvoice({ open, setOpen, id }) {
+export default function PersonalInvoice({ setOpen, id }) {
+  const [{ data }] = useData();
+  console.log(data);
+
   return (
     <section className={styles.container} onClick={() => setOpen(false)}>
       <div className={styles.wrapper} onClick={(e) => e.stopPropagation()}>
@@ -14,16 +18,16 @@ export default function PersonalInvoice({ open, setOpen, id }) {
           <table className={styles["general-info__table"]}>
             <thead className={styles["general-info__head"]}>
               <tr>
-                <th>ID</th>
-                <th>WEIGHT</th>
-                <th>PRICE</th>
+                <th className={styles["general-info__head"]}>ID</th>
+                <th className={styles["general-info__head"]}>WEIGHT</th>
+                <th className={styles["general-info__head"]}>PRICE</th>
               </tr>
             </thead>
             <tbody className={styles["general-info__body"]}>
               <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
+                <td className={styles["general-info__body-info"]}>1</td>
+                <td className={styles["general-info__body-info"]}>2</td>
+                <td className={styles["general-info__body-info"]}>3</td>
               </tr>
             </tbody>
             <tfoot className={styles["general-info__foot"]}>
